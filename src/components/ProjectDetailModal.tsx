@@ -1,10 +1,13 @@
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
 export function ProjectDetailModal({ project, open, onClose }: { project: any, open: boolean, onClose: () => void }) {
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null)
 
-  return (
+  if (!open && !fullscreenImage) return null
+
+  return createPortal(
     <>
       {/* Main Modal */}
       <AnimatePresence>
@@ -13,8 +16,8 @@ export function ProjectDetailModal({ project, open, onClose }: { project: any, o
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[999] flex items-center justify-center p-4 md:p-6"
-            style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(10px)' }}
+            className="fixed inset-0 flex items-center justify-center p-4 md:p-6"
+            style={{ zIndex: 99999, background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(10px)' }}
             onClick={onClose}
           >
             <motion.div
@@ -111,11 +114,10 @@ export function ProjectDetailModal({ project, open, onClose }: { project: any, o
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-10"
-            style={{ background: 'rgba(0,0,0,0.96)', backdropFilter: 'blur(16px)' }}
+            className="fixed inset-0 flex items-center justify-center p-4 md:p-10"
+            style={{ zIndex: 999999, background: 'rgba(0,0,0,0.96)', backdropFilter: 'blur(16px)' }}
             onClick={() => setFullscreenImage(null)}
           >
-            {/* Close Lightbox */}
             <button
               onClick={() => setFullscreenImage(null)}
               className="absolute top-5 right-5 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white/70 hover:text-white hover:bg-white/20 transition-all"
@@ -137,6 +139,7 @@ export function ProjectDetailModal({ project, open, onClose }: { project: any, o
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </>,
+    document.body
   )
 }

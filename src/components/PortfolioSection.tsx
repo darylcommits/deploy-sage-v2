@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
@@ -63,15 +64,16 @@ function IphoneFrame({ children }: { children: React.ReactNode }) {
 }
 
 function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
-  return (
+  if (!open) return null
+  return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[999] flex items-center justify-center p-6"
-          style={{ background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(8px)' }}
+          className="fixed inset-0 flex items-center justify-center p-6"
+          style={{ zIndex: 99999, background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(8px)' }}
           onClick={onClose}
         >
           <motion.div
@@ -103,7 +105,8 @@ function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   )
 }
 
