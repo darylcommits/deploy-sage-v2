@@ -85,7 +85,7 @@ const SERVICES = [
   {
     num: '08',
     title: 'Data Security & Protection',
-    desc: 'Enterprise-grade data protection with encryption, compliance management, and real-time breach monitoring to keep your business safe.',
+    desc: 'Stay compliant and protected under the Philippines\' Data Privacy Act, GDPR, and CCPA — so your business avoids penalties and earns customer trust.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
         <path d="M18 3L6 8v9c0 7.18 5.16 13.9 12 15.5C24.84 30.9 30 24.18 30 17V8L18 3z" stroke="#00e5c8" strokeWidth="1.2" strokeLinejoin="round"/>
@@ -137,7 +137,7 @@ export default function ServicesSection() {
               Our Services
             </p>
             <h2 className="font-geist font-medium text-3xl xl:text-4xl text-white leading-tight tracking-tight">
-              Technology that<br/>drives growth.
+              Digital Solutions That<br/>Drive Business Growth
             </h2>
           </motion.div>
 

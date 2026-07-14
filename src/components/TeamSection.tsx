@@ -178,14 +178,11 @@ export default function TeamSection() {
             Our team
           </motion.h2>
           <motion.h3 variants={itemVariants} className="text-2xl lg:text-3xl text-white font-geist font-medium">
-            Build with us.
+            The People Behind DeploySage.
           </motion.h3>
           <motion.div variants={itemVariants} className="text-sm leading-relaxed max-w-md" style={{ color: 'rgba(255,255,255,0.7)' }}>
             <p className="mb-4">
-              We are actively hiring intentional, empathetic and curious people who thrive on creating delightful experiences. If you'd like to be a part of the journey, email <a href="mailto:careers@deploysage.com" className="text-[#00e5c8] hover:underline transition-all">careers@deploysage.com</a> with your CV or portfolio, and a thoughtful note.
-            </p>
-            <p>
-              Read more about our values <a href="#" className="text-[#00e5c8] hover:underline transition-all">here</a>.
+              DeploySage is committed to helping businesses grow through technology that is dependable, professionally delivered, and executed without delay. We believe every organization, regardless of size, deserves access to systems and strategies designed to help it thrive. Integrity remains central to every engagement we undertake, and we hold ourselves to a standard that consistently goes beyond expectation. Above all, we remain grounded in the community and people who make our work meaningful. This reflects who we are, and how we conduct our business.
             </p>
           </motion.div>
         </motion.div>

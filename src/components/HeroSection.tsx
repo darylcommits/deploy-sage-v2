@@ -172,7 +172,7 @@ export default function HeroSection() {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.6, delay: 1.1 }}
                 >
-                  Stop managing manually. Start scaling smart.
+                  Your Partner in Digital Transformation & Growth.
                 </motion.p>
 
                 {/* Shorter Description matching the reference image typography */}
@@ -183,7 +183,7 @@ export default function HeroSection() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.2 }}
                 >
-                  We guide businesses as they transition into technology-driven organizations, building smart systems and strategies so your business wins.
+                  DeploySage Consulting & Solutions helps businesses grow through digital transformation, workflow automation, and data protection — while driving visibility with SEO, social media management, and media buying. One partner, every system your business needs to scale.
                 </motion.p>
 
                 {/* CTA Buttons with new styling */}
