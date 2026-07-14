@@ -68,7 +68,7 @@ const TEAM_PROFILES = [
   },
 ]
 
-const fadeUp = {
+const fadeUp: any = {
   hidden: { opacity: 0, y: 30 },
   visible: (i = 0) => ({
     opacity: 1,

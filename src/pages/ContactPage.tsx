@@ -30,12 +30,6 @@ export default function ContactPage() {
     const TEMPLATE_ID = 'template_wt4pcgd'
     const PUBLIC_KEY = 'Bp8PDPszJ-F2heSnv'
 
-    if (SERVICE_ID === 'YOUR_SERVICE_ID') {
-      setIsSubmitting(false)
-      setErrorMsg('Please configure your EmailJS credentials in the source code.')
-      return
-    }
-
     if (formRef.current) {
       emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
         .then(() => {

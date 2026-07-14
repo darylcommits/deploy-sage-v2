@@ -112,7 +112,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
               </div>
               <p className="text-white/40 text-xs leading-relaxed mb-3">{project.desc}</p>
               <div className="flex flex-wrap gap-1.5 mb-3">
-                {project.tags.map(t => (
+                {project.tags.map((t: string) => (
                   <span key={t} className="px-2 py-0.5 text-[9px] font-medium rounded-full text-[#00e5c8]/70 border border-[#00e5c8]/15 bg-[#00e5c8]/05 uppercase tracking-wider">
                     {t}
                   </span>

@@ -31,7 +31,7 @@ const containerVariants = {
   }
 }
 
-const itemVariants = {
+const itemVariants: any = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
@@ -146,7 +146,7 @@ export default function TeamSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const navigate = useNavigate()
   const [[activeIndex, direction], setActiveIndex] = useState([0, 0])
-  const dragStartX = useRef(0)
+  // dragStartX removed
   const isDragging = useRef(false)
   const SWIPE_THRESHOLD = 50
 

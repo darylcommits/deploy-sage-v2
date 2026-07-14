@@ -50,22 +50,6 @@ function torusPositions(count: number) {
   return positions
 }
 
-// ─── Galaxy / spiral positions ────────────────────────────────────────────────
-function galaxyPositions(count: number) {
-  const positions = new Float32Array(count * 3)
-  for (let i = 0; i < count; i++) {
-    const arm = Math.floor(Math.random() * 3)
-    const t = Math.random()
-    const angle = arm * ((Math.PI * 2) / 3) + t * Math.PI * 3
-    const radius = t * 5.0
-    const spread = (1 - t) * 0.8
-    positions[i * 3]     = Math.cos(angle) * radius + (Math.random() - 0.5) * spread
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 0.5
-    positions[i * 3 + 2] = Math.sin(angle) * radius + (Math.random() - 0.5) * spread
-  }
-  return positions
-}
-
 // ─── Scatter / Dissolve positions ─────────────────────────────────────────────
 function scatterPositions(count: number) {
   const positions = new Float32Array(count * 3)
@@ -83,10 +67,9 @@ function scatterPositions(count: number) {
 interface ParticleMeshProps {
   scrollProgress: React.MutableRefObject<number>
   mousePos: React.MutableRefObject<{ x: number; y: number }>
-  debug?: { rx: number; ry: number; rz: number; px: number; py: number; pz: number; s: number }
 }
 
-export default function ParticleMesh({ scrollProgress, mousePos, debug }: ParticleMeshProps) {
+export default function ParticleMesh({ scrollProgress, mousePos }: ParticleMeshProps) {
   const pointsRef = useRef<THREE.Points>(null)
   const { camera, size } = useThree()
 
@@ -213,7 +196,7 @@ export default function ParticleMesh({ scrollProgress, mousePos, debug }: Partic
   const _invMatrix = useMemo(() => new THREE.Matrix4(), [])
   const _localRay  = useMemo(() => new THREE.Ray(), [])
 
-  useFrame(({ clock, mouse }) => {
+  useFrame(({ clock }) => {
     if (!pointsRef.current) return
     
     const t = clock.getElapsedTime()

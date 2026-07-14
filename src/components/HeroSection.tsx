@@ -5,7 +5,7 @@ import * as THREE from 'three'
 import ParticleMesh, { TerrainBackground, DataRain } from './ParticleField'
 import { trackClick } from '../lib/analytics'
 
-function SceneContent({ mousePos, debug }: { mousePos: React.MutableRefObject<{ x: number; y: number }>, debug: any }) {
+function SceneContent({ mousePos }: { mousePos: React.MutableRefObject<{ x: number; y: number }> }) {
   const { size } = useThree()
   const scrollProgress = useRef(0)  // useRef = instant updates, no re-renders
   const groupRef = useRef<THREE.Group>(null)
@@ -78,7 +78,7 @@ function SceneContent({ mousePos, debug }: { mousePos: React.MutableRefObject<{ 
         <DataRain />
       </group>
       {size.width >= 768 && (
-        <ParticleMesh scrollProgress={scrollProgress} mousePos={mousePos} debug={debug} />
+        <ParticleMesh scrollProgress={scrollProgress} mousePos={mousePos} />
       )}
     </group>
   )
@@ -109,12 +109,6 @@ function WordReveal({ text, className = '', delay = 0 }: { text: string; classNa
   )
 }
 
-const STATS = [
-  { value: '50+', label: 'Projects Delivered' },
-  { value: '30+', label: 'Happy Clients' },
-  { value: '10+', label: 'Industries Served' },
-]
-
 export default function HeroSection() {
   const mousePos = useRef({ x: 0, y: 0 })
 
@@ -138,7 +132,7 @@ export default function HeroSection() {
           camera={{ position: [0, -1, 8], fov: 52 }} 
           className="w-full h-full"
         >
-          <SceneContent mousePos={mousePos} debug={undefined} />
+          <SceneContent mousePos={mousePos} />
         </Canvas>
       </div>
 

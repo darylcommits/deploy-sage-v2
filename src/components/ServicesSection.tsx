@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { trackClick } from '../lib/analytics'
 
 const SERVICES = [
@@ -96,7 +96,7 @@ const SERVICES = [
   },
 ]
 
-const cardVariants = {
+const cardVariants: any = {
   hidden: { opacity: 0, y: 40, scale: 0.88 },
   visible: (i: number) => ({
     opacity: 1,
@@ -112,7 +112,6 @@ const cardVariants = {
 
 export default function ServicesSection() {
   const sectionRef = useRef<HTMLElement>(null)
-  const isInView = useInView(sectionRef, { once: false, margin: '-10%' })
 
   return (
     <section
