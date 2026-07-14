@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
@@ -80,6 +81,9 @@ const fadeUp: any = {
 export default function TeamMemberPage() {
   const { slug } = useParams<{ slug: string }>()
   const profile = TEAM_PROFILES.find((p) => p.slug === slug)
+
+  // Scroll to top on load
+  useEffect(() => { window.scrollTo(0, 0) }, [])
 
   if (!profile) {
     return (

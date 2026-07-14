@@ -115,14 +115,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
   return (
     <>
       <motion.div
-        onClick={() => {
-          if (project.purpose || project.tech) {
-            setDetailsOpen(true)
-          } else {
-            setDemoOpen(true)
-          }
-        }}
-        className={`service-card group relative flex flex-col overflow-hidden cursor-pointer ${project.span || ''}`}
+        className={`service-card group relative flex flex-col overflow-hidden ${project.span || ''}`}
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-40px' }}

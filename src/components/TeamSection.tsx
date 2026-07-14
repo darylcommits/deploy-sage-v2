@@ -210,13 +210,14 @@ export default function TeamSection() {
                       style={{ touchAction: 'pan-y' }}
                       onDragStart={() => { isDragging.current = false }}
                       onDrag={(_, info) => {
-                        if (Math.abs(info.offset.x) > 8) isDragging.current = true
+                        if (Math.abs(info.offset.x) > 12) isDragging.current = true
                       }}
                       onDragEnd={(_, info) => {
                         if (Math.abs(info.offset.x) > SWIPE_THRESHOLD || Math.abs(info.velocity.x) > 300) {
                           if (info.offset.x < 0) goNext()
                           else goPrev()
                         }
+                        setTimeout(() => { isDragging.current = false }, 150)
                       }}
                     >
                     <AnimatePresence mode="wait" custom={direction}>

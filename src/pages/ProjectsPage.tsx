@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
@@ -70,13 +70,6 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
   return (
     <>
       <motion.div
-        onClick={() => {
-          if (project.purpose || project.tech) {
-            setDetailsOpen(true)
-          } else {
-            setDemoOpen(true)
-          }
-        }}
         className="service-card group relative flex flex-col overflow-hidden cursor-pointer"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -197,6 +190,10 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
 }
 
 export default function ProjectsPage() {
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [])
+
   return (
     <div className="bg-[#030303] min-h-screen text-white font-inter">
       <div className="max-w-7xl mx-auto px-6 py-24">
