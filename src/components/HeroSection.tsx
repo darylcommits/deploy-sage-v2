@@ -127,7 +127,7 @@ export default function HeroSection() {
       className="relative min-h-screen flex flex-col overflow-hidden"
     >
       {/* ── Full-screen 3D Canvas (waves/rain visible everywhere, models md+) ─────────── */}
-      <div className="fixed inset-0 z-0">
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <Canvas 
           camera={{ position: [0, -1, 8], fov: 52 }} 
           className="w-full h-full"
