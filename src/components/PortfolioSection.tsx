@@ -162,10 +162,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
             </div>
             <div className="flex gap-4">
               <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  setDemoOpen(true)
-                }}
+                onClick={() => setDemoOpen(true)}
                 className="self-start text-xs font-medium text-[#00e5c8] hover:text-white transition-colors flex items-center gap-1.5 group/btn"
               >
                 Request a Demo
@@ -175,10 +172,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
               </button>
               {(project.purpose || project.tech) && (
                 <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    setDetailsOpen(true)
-                  }}
+                  onClick={() => setDetailsOpen(true)}
                   className="self-start text-xs font-medium text-white/50 hover:text-white transition-colors flex items-center gap-1.5 group/btn2"
                 >
                   View Details
