@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import { createPortal } from 'react-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 import { ALL_PROJECTS } from '../data/projects'
 import { ProjectDetailModal } from '../components/ProjectDetailModal'
+import { DemoModal } from '../components/DemoModal'
 
 const gradientPairs = [
   ['#00e5c8', '#7b5cff'],
@@ -139,49 +139,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
         </div>
       </motion.div>
 
-      {demoOpen && createPortal(
-        <AnimatePresence>
-          {demoOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 flex items-center justify-center p-6"
-              style={{ zIndex: 99999, background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(8px)' }}
-              onClick={() => setDemoOpen(false)}
-            >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="bg-[#0d0d0d] border border-white/10 rounded-2xl p-8 max-w-md w-full relative"
-                onClick={e => e.stopPropagation()}
-              >
-                <button onClick={() => setDemoOpen(false)} className="absolute top-4 right-4 text-white/40 hover:text-white transition-colors">
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M4 4l10 10M14 4L4 14" strokeLinecap="round"/>
-                  </svg>
-                </button>
-                <h3 className="text-2xl font-geist font-medium text-white mb-2">Request a Demo</h3>
-                <p className="text-white/50 text-sm mb-6">Fill in your details and we'll get back to you within 24 hours.</p>
-                <form className="flex flex-col gap-4" onSubmit={e => { e.preventDefault(); setDemoOpen(false) }}>
-                  <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-white/30 focus:outline-none focus:border-[#00e5c8]/50 transition-colors" />
-                  <input type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-white/30 focus:outline-none focus:border-[#00e5c8]/50 transition-colors" />
-                  <textarea placeholder="Project Details (optional)" rows={3} className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-white/30 focus:outline-none focus:border-[#00e5c8]/50 transition-colors resize-none" />
-                  <button type="submit" className="btn-primary justify-center mt-2">
-                    Send Request
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                    </svg>
-                  </button>
-                </form>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>,
-        document.body
-      )}
+      <DemoModal open={demoOpen} onClose={() => setDemoOpen(false)} projectName={project.title} />
       <ProjectDetailModal project={project} open={detailsOpen} onClose={() => setDetailsOpen(false)} />
     </>
   )
