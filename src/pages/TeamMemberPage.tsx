@@ -2,37 +2,109 @@ import { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-const TEAM_PROFILES = [
+type Profile = {
+  slug: string
+  role: string
+  name: string
+  image: string
+  tagline: string
+  bio: string[]
+  skills: string[]
+  skillCategories?: { title: string, skills: string }[]
+  linkedin: string
+  twitter: string
+  portfolio: { title: string, desc: string, tag: string }[]
+  experience?: { title: string, company: string, date: string, items: string[] }[]
+  education?: { degree: string, school: string, date: string }[]
+  certifications?: string[]
+  awards?: string[]
+}
+
+const TEAM_PROFILES: Profile[] = [
   {
     slug: 'john-daryl-lucero',
     role: 'CO FOUNDER & CTO',
     name: 'John Daryl Lucero',
     image: '/darylimg.png',
-    tagline: 'Full-stack engineer. Systems architect. Open-source advocate.',
+    tagline: 'Goal-oriented IT/Web Programmer and founder of DeploySage Consulting & Solutions.',
     bio: [
-      'John Daryl Lucero is the Co-Founder and CTO of DeploySage, responsible for shaping the technical vision and engineering culture of the company. With over a decade of hands-on development experience, John is the architect behind everything that runs under the hood at DeploySage.',
+      'John Daryl Lucero is a goal-oriented IT/Web Programmer and founder of DeploySage Consulting & Solutions, with experience in full-stack web development, system administration, and digital transformation.',
+      'He is experienced in building practical software solutions and helping businesses improve processes through technology and automation.',
       'John\'s expertise spans full-stack web development, cloud infrastructure, AI integration, and data security. He has a reputation for writing clean, scalable code and for building engineering teams that are both highly productive and deeply collaborative.',
       'When he\'s not architecting systems, John enjoys contributing to open-source projects, exploring new frameworks, and mentoring junior developers. He is a firm believer that great engineering is about more than code — it\'s about crafting experiences that last.',
     ],
-    skills: ['Full-Stack Development', 'Cloud Architecture', 'AI Integration', 'DevOps', 'Data Security'],
+    skills: [],
+    skillCategories: [
+      { title: 'Frontend', skills: 'Typescript, React, HTML5, CSS3, JavaScript (ES6+), Flutter, Dart, Tailwind CSS, Bootstrap, AlpineJS' },
+      { title: 'Backend Development', skills: 'Node.js, Laravel, PHP' },
+      { title: 'Database & Cloud Services', skills: 'Supabase, Firebase, MySQL' },
+      { title: 'Development Tools', skills: 'Git/Version Control, RESTful APIs, Offline-first architecture, Real-time data synchronization' },
+      { title: 'IDE Code Editors', skills: 'Visual Studio Code, Visual Studio, Arduino IDE, Android Studio' },
+      { title: 'Design & Multimedia', skills: 'Figma, Adobe Photoshop, Canva, Video Editing, Graphic Design' },
+      { title: 'Hardware IoT', skills: 'ESP32, Arduino, GPS Modules, SD Card Modules, Sensor Integration' },
+      { title: 'Development Methodologies', skills: 'Six Sigma process improvement, Agile, Project Management' }
+    ],
     linkedin: '#',
     twitter: '#',
+    experience: [
+      {
+        title: 'IT Specialist',
+        company: 'MIS Department, Ilocos Sur Community College',
+        date: 'Jan 2024 – Feb 2025 · 400 hrs',
+        items: [
+          'Developed a full-stack pageant scoring system for the Kannawidan Festival (2024–2025), covering backend logic and a real-time judging and results-tabulation interface.',
+          'Administered enterprise-level student information systems, including enrollment, grade processing, and academic records.',
+          'Led database optimization work — query restructuring and indexing — that improved system performance by 35%.',
+          'Produced graphic design and promotional content for the college\'s social media channels.'
+        ]
+      },
+      {
+        title: 'Digital Systems Intern',
+        company: 'Department of Agrarian Reform, Bantay, Ilocos Sur',
+        date: '2023 – 2024 · 200 hrs',
+        items: [
+          'Digitized agricultural land records on legacy database systems, supporting government data-migration and compliance standards.'
+        ]
+      }
+    ],
+    education: [
+      { degree: 'Bachelor of Science in Information Technology', school: 'Ilocos Sur Community College', date: '2021 – 2025' },
+      { degree: '1st Semester - 1st Year College', school: 'STI Sta. Mesa', date: '2021' },
+      { degree: 'Secondary Education', school: 'Benito Soliven Academy', date: '2020 - 2021' },
+      { degree: 'Primary Education', school: 'Sived Elementary School', date: '2014 - 2015' }
+    ],
+    certifications: [
+      'Six Sigma White Belt (1 day) — SigmaPH — foundation in process improvement methodologies and waste reduction techniques.',
+      'Six Sigma Yellow Belt (20 hours) — Prof. Marcelo — advanced process improvement strategies and data-driven problem-solving approaches.',
+      'Microsoft AI & Machine Learning Engineer Certificate (3 months) — Coursera — practical training in artificial intelligence, machine learning models, and data-driven solution development.',
+      'Software Engineering Specialization (3 months) — Hong Kong University of Science and Technology via Coursera — software development lifecycle, system design, and testing methodologies.'
+    ],
+    awards: [
+      '4th Place, DICT Startup Regional Competition (2024) — developed and pitched a community management system against 50+ regional startups.',
+      'Pammadayaw 2025 School Spirit Award — represented the institution at a regional pitching competition.',
+      'National Startup DICT Participant — selected to represent the region in a national-level startup competition; 2nd Place, Programming Contest, Ilocos Sur Community College.'
+    ],
     portfolio: [
       {
-        title: 'DeploySage Infrastructure',
-        desc: 'Designed and built the entire cloud-native infrastructure powering DeploySage — zero downtime since launch.',
-        tag: 'Engineering',
+        title: 'Credential Manager System',
+        desc: 'Built secure authentication, automated validation, and real-time document tracking for Lindela Travel & Tours. Processes 500+ daily transactions; cut verification time by 60%.',
+        tag: 'Laravel, AlpineJS, MySQL'
       },
       {
-        title: 'Custom ERP System',
-        desc: 'Architected a bespoke ERP solution for a manufacturing company, replacing 6 legacy tools with one unified platform.',
-        tag: 'Systems',
+        title: 'Silario Dental Clinic Management System',
+        desc: 'Unified patient records across two clinic branches with multi-location sync and appointment scheduling. Manages 200+ patients monthly.',
+        tag: 'React, Tailwind CSS, Supabase'
       },
       {
-        title: 'Real-time Monitoring Dashboard',
-        desc: 'Built a live analytics and data monitoring dashboard processing 50,000+ events per day for a logistics client.',
-        tag: 'Data',
+        title: 'MS Gorospe Psychological Assessment Center System',
+        desc: 'Digitized psychological assessment forms with secure encryption and automated report generation. Reduced paperwork by 80%.',
+        tag: 'React, Tailwind CSS, Supabase'
       },
+      {
+        title: 'West Gate Realty Services',
+        desc: 'Built a CMS and property-listing platform for a real estate client in Santo Domingo, Ilocos Sur.',
+        tag: 'React, Tailwind CSS, Supabase'
+      }
     ],
   },
   {
@@ -220,24 +292,159 @@ export default function TeamMemberPage() {
           className="flex flex-col gap-6"
         >
           <h2 className="text-sm font-bold tracking-[0.2em] uppercase text-[#00e5c8]">Expertise</h2>
-          <div className="flex flex-col gap-3">
-            {profile.skills.map((skill, i) => (
-              <motion.div
-                key={skill}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={i * 0.5}
-                className="flex items-center gap-3 group"
-              >
-                <div className="w-1.5 h-1.5 rounded-full bg-[#00e5c8] flex-shrink-0" />
-                <span className="text-white/70 text-sm group-hover:text-white transition-colors duration-300">{skill}</span>
-              </motion.div>
-            ))}
+          <div className="flex flex-col gap-5">
+            {profile.skillCategories ? (
+              profile.skillCategories.map((cat, i) => (
+                <div key={i} className="flex flex-col gap-1.5">
+                  <h4 className="text-white text-sm font-medium">{cat.title}</h4>
+                  <p className="text-white/50 text-sm leading-relaxed">{cat.skills}</p>
+                </div>
+              ))
+            ) : (
+              profile.skills.map((skill, i) => (
+                <motion.div
+                  key={skill}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={i * 0.5}
+                  className="flex items-center gap-3 group"
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#00e5c8] flex-shrink-0" />
+                  <span className="text-white/70 text-sm group-hover:text-white transition-colors duration-300">{skill}</span>
+                </motion.div>
+              ))
+            )}
           </div>
         </motion.div>
       </section>
+
+      {/* Experience & Education */}
+      {(profile.experience || profile.education) && (
+        <>
+          <div className="w-full max-w-[1200px] mx-auto px-8 lg:px-16">
+            <div className="h-px bg-white/8" />
+          </div>
+          <section className="w-full max-w-[1200px] mx-auto px-8 lg:px-16 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Experience */}
+            {profile.experience && (
+              <div className="flex flex-col gap-8">
+                <motion.h2
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="text-sm font-bold tracking-[0.2em] uppercase text-[#00e5c8]"
+                >
+                  Experience
+                </motion.h2>
+                <div className="flex flex-col gap-10">
+                  {profile.experience.map((exp, i) => (
+                    <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i}>
+                      <h3 className="text-xl font-geist font-medium text-white mb-1">{exp.title}</h3>
+                      <div className="text-white/50 text-sm mb-4">
+                        {exp.company} <span className="mx-2">•</span> {exp.date}
+                      </div>
+                      <ul className="flex flex-col gap-3">
+                        {exp.items.map((item, j) => (
+                          <li key={j} className="flex gap-3 text-white/65 text-sm leading-relaxed">
+                            <span className="text-[#00e5c8] mt-1.5 flex-shrink-0"><div className="w-1.5 h-1.5 rounded-full bg-[#00e5c8]"></div></span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Education */}
+            {profile.education && (
+              <div className="flex flex-col gap-8">
+                <motion.h2
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="text-sm font-bold tracking-[0.2em] uppercase text-[#00e5c8]"
+                >
+                  Education
+                </motion.h2>
+                <div className="flex flex-col gap-8">
+                  {profile.education.map((edu, i) => (
+                    <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} className="pb-6 border-b border-white/10 last:border-0">
+                      <h3 className="text-lg font-geist font-medium text-white mb-2">{edu.degree}</h3>
+                      <p className="text-white/60 text-sm">{edu.school}</p>
+                      <p className="text-[#00e5c8] text-xs font-medium tracking-wider mt-2 uppercase">{edu.date}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
+        </>
+      )}
+
+      {/* Certifications & Awards */}
+      {(profile.certifications || profile.awards) && (
+        <>
+          <div className="w-full max-w-[1200px] mx-auto px-8 lg:px-16">
+            <div className="h-px bg-white/8" />
+          </div>
+          <section className="w-full max-w-[1200px] mx-auto px-8 lg:px-16 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Certifications */}
+            {profile.certifications && (
+              <div className="flex flex-col gap-8">
+                <motion.h2
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="text-sm font-bold tracking-[0.2em] uppercase text-[#00e5c8]"
+                >
+                  Certifications
+                </motion.h2>
+                <ul className="flex flex-col gap-5">
+                  {profile.certifications.map((cert, i) => (
+                    <motion.li key={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} className="flex gap-4 text-white/65 text-sm leading-relaxed bg-white/[0.02] p-5 rounded-xl border border-white/5">
+                      <span className="text-[#00e5c8] mt-1.5 flex-shrink-0">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                      </span>
+                      {cert}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {/* Awards */}
+            {profile.awards && (
+              <div className="flex flex-col gap-8">
+                <motion.h2
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="text-sm font-bold tracking-[0.2em] uppercase text-[#00e5c8]"
+                >
+                  Awards & Honors
+                </motion.h2>
+                <ul className="flex flex-col gap-5">
+                  {profile.awards.map((award, i) => (
+                    <motion.li key={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} className="flex gap-4 text-white/65 text-sm leading-relaxed bg-white/[0.02] p-5 rounded-xl border border-white/5">
+                      <span className="text-[#00e5c8] mt-1 flex-shrink-0">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                      </span>
+                      {award}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </section>
+        </>
+      )}
 
       {/* Divider */}
       <div className="w-full max-w-[1200px] mx-auto px-8 lg:px-16">
@@ -264,17 +471,19 @@ export default function TeamMemberPage() {
               whileInView="visible"
               viewport={{ once: true }}
               custom={i}
-              className="rounded-2xl p-7 border border-white/6 hover:border-[#00e5c8]/30 transition-all duration-500 group cursor-pointer"
+              className="rounded-2xl p-7 border border-white/6 hover:border-[#00e5c8]/30 transition-all duration-500 group cursor-pointer flex flex-col"
               style={{ background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(10px)' }}
             >
-              <span className="inline-block text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full mb-5 text-[#00e5c8]"
-                style={{ background: 'rgba(0,229,200,0.08)', border: '1px solid rgba(0,229,200,0.15)' }}>
-                {item.tag}
-              </span>
+              <div className="mb-5">
+                <span className="inline-block text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full text-[#00e5c8]"
+                  style={{ background: 'rgba(0,229,200,0.08)', border: '1px solid rgba(0,229,200,0.15)' }}>
+                  {item.tag}
+                </span>
+              </div>
               <h3 className="font-geist font-semibold text-white text-lg mb-3 group-hover:text-[#00e5c8] transition-colors duration-300 leading-snug">
                 {item.title}
               </h3>
-              <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
+              <p className="text-white/50 text-sm leading-relaxed mt-auto">{item.desc}</p>
             </motion.div>
           ))}
         </div>
