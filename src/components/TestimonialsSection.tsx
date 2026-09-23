@@ -2,34 +2,46 @@ import { motion } from 'framer-motion'
 
 const TESTIMONIALS = [
   {
-    quote: "DeploySage completely transformed our operations. Their AI automation solutions saved us 20+ hours per week.",
+    quote: "Napakadali nang i-manage yung patient records namin across branches. The multi-location sync they built is flawless. Sobrang laking tulong sa clinic operations namin!",
+    name: "Dr. Silario",
+    role: "Owner, Silario Dental Clinic",
+    avatar: "/testimonial/Silario.jpg",
+  },
+  {
+    quote: "Yung Credential Manager System nila changed the game for us. Dati manual lahat, ngayon everything is automated and secure. Fast delivery and highly professional team.",
+    name: "Sarah Reyes",
+    role: "Operations, Lindela Travel & Tours",
+    avatar: "/testimonial/lindela.png",
+  },
+  {
+    quote: "DeploySage built a solid property-listing platform for us. Super easy gamitin yung CMS and ang ganda ng UI. It really elevated our brand's online presence.",
+    name: "Antonio Valera",
+    role: "Founder, West Gate Realty Services",
+    avatar: "/testimonial/westgate.jpg",
+  },
+  {
+    quote: "They helped us scale our platform efficiently. Ang bilis kausap ng team and they truly understand the technical architecture needed for growth.",
+    name: "Kevin Mendoza",
+    role: "Tech Lead, JobFinder",
+    avatar: "/testimonial/jobfinder.jpg",
+  },
+  {
+    quote: "DeploySage delivered beyond our expectations! Ang galing ng system na ginawa nila, seamless and very user-friendly. Highly recommended kung gusto niyo ng quality work.",
     name: "Maria Santos",
-    role: "CEO, RetailPro Philippines",
-    avatar: "MS",
+    role: "Admin, Kumadronas",
+    avatar: "/testimonial/kumadronas.png",
   },
   {
-    quote: "The website they built for us tripled our conversion rate in just 2 months. Exceptional quality and support.",
-    name: "James Rivera",
-    role: "Founder, GrowthLabs",
-    avatar: "JR",
+    quote: "Sobrang ganda ng naging output ng digital transformation namin with DeploySage. Very responsive sila sa mga needs namin at laging nagpo-provide ng best tech solutions.",
+    name: "Rafael Roces",
+    role: "CEO, Raf-Rok",
+    avatar: "/testimonial/raf-rok-logo.png",
   },
   {
-    quote: "Working with DeploySage felt like having a tech co-founder. They truly understand business, not just code.",
-    name: "Ana Reyes",
-    role: "COO, LogiFlow Inc.",
-    avatar: "AR",
-  },
-  {
-    quote: "Their digital marketing strategy helped us reach 5x more customers. Real results, real ROI.",
-    name: "Carlos Mendoza",
-    role: "Director, NexaTrade",
-    avatar: "CM",
-  },
-  {
-    quote: "Fast, professional, and incredibly talented. Our custom system went live in record time.",
-    name: "Sofia Lim",
-    role: "Operations Manager, PrimePath",
-    avatar: "SL",
+    quote: "Reliable, fast, and top-tier service. The system they developed runs smoothly and secured our data perfectly. We couldn't ask for a better technology partner.",
+    name: "J. Dela Cruz",
+    role: "Operations Head, 102nd",
+    avatar: "/testimonial/102nd-testimonial-avatar.png",
   },
 ]
 
@@ -88,8 +100,12 @@ export default function TestimonialsSection() {
               </p>
 
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-[#00e5c8]/10 border border-[#00e5c8]/20 flex items-center justify-center text-[#00e5c8] text-xs font-bold flex-shrink-0">
-                  {t.avatar}
+                <div className="w-10 h-10 rounded-full bg-[#00e5c8]/10 border border-[#00e5c8]/20 flex items-center justify-center overflow-hidden flex-shrink-0">
+                  {t.avatar.includes('.') ? (
+                    <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-[#00e5c8] text-xs font-bold">{t.avatar}</span>
+                  )}
                 </div>
                 <div>
                   <div className="text-white text-sm font-semibold">{t.name}</div>
