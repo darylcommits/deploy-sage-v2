@@ -1,0 +1,31 @@
+can you create a analytics also admin dashboard using my system. to know the visits of the website, and what are they clicking in the website. mostly visits. features in our website. and the emails send and messages also, create a admin to login i must access
+Use supabase as database
+projectname/admin
+
+Front must be dark - dark like digital services. color is #11b5a4
+Get started change to set appointment. schedule of google meet when clicking this get started. create a create a google meet. 
+
+
+
+UI Design Contact us - 
+
+
+Call Us if click should be direct to - Phone Number.
+
+meet the team - new page. 
+
+ top information me - with their portfolios
+ below should be team member - with their portfolios
+
+
+below home/projects or clients new page. - testimonials - feedbacks.
+
+
+ 
+
+footer - remove stay updated subscribe. 
+
+
+deploysage123098 - supabase pass
+
+09452881215

@@ -1,0 +1,10 @@
+in the lightbulb when scrolling down again it will transform to a 3d  services model and must be a fast slide transition to the right and it shows the services.glb when it transform the hands is close and slowly scrolling the hands will opeen and shows the objects in the hands this will put in the right sidee.  and in the left side is the services popping up and each cards spread. this part is for the services.
+
+ 
+the lightbulb particlees transform the services.glb particles also but the transitions is the background move also to right it must be slidde right the background when scrolling down in the about us 
+
+
+when scrolling down the service model 3d, after the service model, i want an animation of expand fast particlees of the 3d model services and the particles on it become particles backgrounds of the pagee.
+
+
+

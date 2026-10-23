@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 const TESTIMONIALS = [
   {
     quote: "Napakadali nang i-manage yung patient records namin across branches. The multi-location sync they built is flawless. Sobrang laking tulong sa clinic operations namin!",
-    name: "Dr. Silario",
+    name: "Dr. Silario Saplor",
     role: "Owner, Silario Dental Clinic",
     avatar: "/Testimonial/Silario.jpg",
   },
@@ -15,32 +15,32 @@ const TESTIMONIALS = [
   },
   {
     quote: "DeploySage built a solid property-listing platform for us. Super easy gamitin yung CMS and ang ganda ng UI. It really elevated our brand's online presence.",
-    name: "Antonio Valera",
+    name: "Jon Rocero",
     role: "Founder, West Gate Realty Services",
     avatar: "/Testimonial/westgate.jpg",
   },
   {
     quote: "They helped us scale our platform efficiently. Ang bilis kausap ng team and they truly understand the technical architecture needed for growth.",
-    name: "Kevin Mendoza",
+    name: "Chlyde Laongayan",
     role: "Tech Lead, JobFinder",
     avatar: "/Testimonial/jobfinder.jpg",
   },
   {
     quote: "DeploySage delivered beyond our expectations! Ang galing ng system na ginawa nila, seamless and very user-friendly. Highly recommended kung gusto niyo ng quality work.",
-    name: "Maria Santos",
+    name: "Jessa Ustari",
     role: "Admin, Kumadronas",
     avatar: "/Testimonial/kumadronas.png",
   },
   {
     quote: "Sobrang ganda ng naging output ng digital transformation namin with DeploySage. Very responsive sila sa mga needs namin at laging nagpo-provide ng best tech solutions.",
-    name: "Rafael Roces",
-    role: "CEO, Raf-Rok",
+    name: "Stephen Riambon",
+    role: "Raf-Rok, Barber",
     avatar: "/Testimonial/raf-rok-logo.png",
   },
   {
     quote: "Reliable, fast, and top-tier service. The system they developed runs smoothly and secured our data perfectly. We couldn't ask for a better technology partner.",
-    name: "J. Dela Cruz",
-    role: "Operations Head, 102nd",
+    name: "Jennie Villegas",
+    role: "Admin, 102nd",
     avatar: "/Testimonial/102nd-testimonial-avatar.png",
   },
 ]
@@ -90,7 +90,7 @@ export default function TestimonialsSection() {
               <div className="flex gap-1 mb-5">
                 {[...Array(5)].map((_, j) => (
                   <svg key={j} width="12" height="12" viewBox="0 0 12 12" fill="#00e5c8" opacity="0.8">
-                    <path d="M6 1l1.4 2.8 3.1.5-2.2 2.2.5 3.1L6 8.3 3.2 9.6l.5-3.1L1.5 4.3l3.1-.5z"/>
+                    <path d="M6 1l1.4 2.8 3.1.5-2.2 2.2.5 3.1L6 8.3 3.2 9.6l.5-3.1L1.5 4.3l3.1-.5z" />
                   </svg>
                 ))}
               </div>

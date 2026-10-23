@@ -111,7 +111,7 @@ const TEAM_PROFILES: Profile[] = [
     slug: 'mike-laurence-lucero',
     role: 'CO FOUNDER & CEO',
     name: 'Mike Laurence Lucero',
-    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=800',
+    image: '/mikeimg.jpg',
     tagline: 'Visionary leader. Product strategist. Growth architect.',
     bio: [
       'Mike Laurence Lucero is the Co-Founder and CEO of DeploySage — a technology company dedicated to helping businesses grow through smart digital solutions. With a deep passion for building products that matter, Mike leads the company with a focus on impact, innovation, and intentional design.',

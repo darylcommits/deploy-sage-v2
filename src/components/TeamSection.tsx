@@ -15,7 +15,7 @@ const TEAM_MEMBERS = [
     slug: 'mike-laurence-lucero',
     role: 'CO FOUNDER & CEO',
     name: 'Mike Laurence Lucero',
-    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=600',
+    image: '/mikeimg.jpg',
     linkedin: '#',
     twitter: '#'
   }
