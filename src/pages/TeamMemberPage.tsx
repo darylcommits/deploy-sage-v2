@@ -189,7 +189,8 @@ export default function TeamMemberPage() {
           <img
             src={profile.image}
             alt={profile.name}
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: '50% 30%' }}
           />
           {/* Gradient overlays */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/60 to-transparent" />
